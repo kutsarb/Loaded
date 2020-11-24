@@ -1,15 +1,18 @@
-var path = require("path");
+// var path = require("path");
+// var express = require("express");
 
+// var app = express();
 
-module.exports = function (app) {
+var db = require("../models")
 
+module.exports = function(app) {
 
-    app.get("/", function (req, res) {
-        res.sendFile(path.join(__dirname, ".../layouts/main.html"));
+    app.get("/", function(req, res) {
+        db.Driver.findAll({})
+        .then(function (results){
+            hbsObject = {
+                drivers: results
+            }
+        }).then(res.render("index"));
     });
-
-    app.get("/index", function (req, res) {
-        res.sendFile(path.join(__dirname, "../views/index.html"));
-    });
-
 };

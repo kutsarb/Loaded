@@ -1,5 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    var Loads = sequelize.define("Loads", {
+    var Load = sequelize.define("Load", 
+    {
         broker: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -29,12 +30,12 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         puDate: {
-            type: DataTypes.DATETIME ,
+            type: DataTypes.DATE,
             allowNull: false,
         },
         dueDate: {
-            type: DataTypes.DATETIME ,
-            allowNull: false
+            type: DataTypes.DATE,
+            allowNull: false,
         },
         trailer: {
             type: DataTypes.STRING,
@@ -43,17 +44,15 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 50]
             }
         },
-        active: DataTypes.Boolean,
 
-        defaultValue: false
 
     })
-    Loads.associate = function(models){
-        Loads.belongsTo(models.Driver, {
+    Load.associate = function(models){
+        Load.belongsTo(models.Driver, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
-    return Loads
+    return Load
 }

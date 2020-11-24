@@ -1,11 +1,11 @@
 module.exports = function (sequelize, DataTypes) {
     var Driver = sequelize.define("Driver", {
-        name: {
+        driverName: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 50]
-            },
+            }
         },
         cell: {
             type: DataTypes.INTEGER,
@@ -23,7 +23,7 @@ module.exports = function (sequelize, DataTypes) {
         }
     })
     Driver.associate = function (models) {
-        Driver.hasMany(models.Loads);
+        Driver.hasMany(models.Load);
     };
     return Driver
 }
