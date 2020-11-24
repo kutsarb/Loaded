@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
     var Driver = sequelize.define("Driver", {
         name: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 50]
@@ -12,10 +12,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false,
             validate: {
                 len: [10, 10]
-            },
+            }
         },
         truck: {
-            type: DataTypes.String,
+            type: DataTypes.STRING,
             allowNull: false,
             validate: {
                 len: [1, 30]
