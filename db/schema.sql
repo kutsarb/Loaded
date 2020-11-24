@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS trackster_db;
+DROP DATABASE IF EXISTS loaded_db;
 
-CREATE DATABASE trackster_db;
+CREATE DATABASE loaded_db;

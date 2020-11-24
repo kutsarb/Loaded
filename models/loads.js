@@ -43,19 +43,6 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 50]
             }
         },
-        // commodity: {
-        //     type: DataTypes.String,
-        //     allowNull: true
-        // },
-        // weight: {
-        //     type: DataTypes.Int,
-        //     allowNull: true
-        // },
-        // pallets:{
-        //     type:DataTypes.Int,
-        //     allowNull:true
-        // },
-
         active: DataTypes.Boolean,
 
         defaultValue: false
