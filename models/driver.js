@@ -21,9 +21,12 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 30]
             }
         }
-    })
+    });
     Driver.associate = function (models) {
         Driver.hasMany(models.Load);
     };
+
+    
+
     return Driver
 }
