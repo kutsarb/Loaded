@@ -43,6 +43,19 @@ module.exports = function(app) {
 
     });
 
+    app.get("/search", function (req, res) {
+        db.Load.findAll({
+            include: [{model:db.Driver}]
+        }).then(function (data) {
+                hbsObject = {
+                    loads: data
+                };
+                console.log(hbsObject);
+            }).then(res.render("search", hbsObject));
+        
+
+    });
+
    
 
    
