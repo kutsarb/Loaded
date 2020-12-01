@@ -1,0 +1,1 @@
+INSERT INTO loads (broker, loadNum, puAddress, doAddress,puDate,dueDate,trailer) VALUE ('TQL', '168449','1234 SMITH ST., CLEVELAND, OH','1234 SMITH ST., CLEVELAND, TN',11/27/1996,11/27/1999,3310)
