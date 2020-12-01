@@ -32,10 +32,16 @@ module.exports = function (sequelize, DataTypes) {
         puDate: {
             type: DataTypes.DATE,
             allowNull: false,
+            get() {
+                return moment(this.getDataValue('puDate')).format('DD/MM/YYYY h:mm');
+            }
         },
         dueDate: {
             type: DataTypes.DATE,
             allowNull: false,
+            get() {
+                return moment(this.getDataValue('dueDate')).format('DD/MM/YYYY h:mm:ss');
+            }
         },
         trailer: {
             type: DataTypes.STRING,
