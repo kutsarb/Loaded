@@ -39,6 +39,15 @@ $(document).ready(function () {
     const driverCellFocus = $("#driverCellFocus");
     const truckNumFocus = $("#truckNumFocus");
 
+    const currentdate = new Date(); 
+    const datetime = currentdate.getFullYear() + "-"
+                + (currentdate.getMonth()+1)  + "-" 
+                + currentdate.getDate() + " "  
+                + currentdate.getHours() + ":"  
+                + currentdate.getMinutes() + ":" 
+                + currentdate.getSeconds();
+    console.log(datetime)
+
     let map;
 
     function initMap() {
@@ -66,7 +75,7 @@ $(document).ready(function () {
 //        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
 //    });
 
-
+    // post for driver
     $("#submitDriver").click(function () {
         if (!driverValue.val().trim() || !cellValue.val().trim() || !truckNumValue.val()) {
             return;
@@ -101,6 +110,7 @@ $(document).ready(function () {
         postDriver(newPost);
     });
 
+    // post for loads
     $("#submitLoad").click(function () {
         if (!brokerValue.val() || 
             !loadNumValue.val() || 
@@ -157,7 +167,14 @@ $(document).ready(function () {
         postLoad(newPost);
     });
 
+    $(".enRoute").click( function (){
+
+    });
+
     
+
+
+
     
     
 
