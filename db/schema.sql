@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS loaded_db;
+
+CREATE DATABASE loaded_db;

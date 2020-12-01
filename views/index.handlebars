@@ -1,0 +1,243 @@
+<!-- Navigation -->
+<div class="wrapper">
+  <!-- Sidebar -->
+  <nav id="sidebar" class="active">
+    <div class="sidebar-header">
+      <h3>Bootstrap Sidebar</h3>
+    </div>
+
+    <ul class="list-unstyled components">
+      <p>Dummy Heading</p>
+      <li class="active">
+        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+        <ul class="collapse list-unstyled" id="homeSubmenu">
+          <li>
+            <a href="#">Home 1</a>
+          </li>
+          <li>
+            <a href="#">Home 2</a>
+          </li>
+          <li>
+            <a href="#">Home 3</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">About</a>
+      </li>
+      <li>
+        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Add Asset</a>
+        <ul class="collapse list-unstyled" id="pageSubmenu">
+          <li>
+            <a href="#" data-toggle="modal" data-target="#addDriver">Add Driver</a>
+          </li>
+          <li>
+            <a href="#" data-toggle="modal" data-target="#addLoad">Add Load</a>
+          </li>
+          <li>
+            <a href="#">Page 3</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Portfolio</a>
+      </li>
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+
+  </nav>
+  <!-- Page Content -->
+  <div id="content">
+  
+  
+  
+  
+  
+    <!-- Page Content -->
+    {{!-- <div class="container"> --}}
+    <!-- JUMBOTRON -->
+    <div class="jumbotron jumbotron-fluid rounded bg-success">
+      <div class="container">
+        <h1 class="display-4">Logo here!</h1>
+        <p class="lead">Tag line Here!</p>
+      </div>
+    </div>
+  
+    <!-- Timeline -->
+    {{!-- <div class="card text-white bg-secondary my-5 py-4 text-center">
+      <div class="card-body">
+        <div id='timeline-embed' style="width: 100%; height: 400px"></div>
+      </div>
+    </div> --}}
+    
+    
+    <div class="row justify-content-around ">
+      <div class="col-lg-3 m-3 border border-dark rounded">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 ml-5 ">
+            <h4 class="text-center">En Route Tracker</h4>
+          </div>
+        </div> 
+        <div>
+          {{#each loads}}
+            {{log this}}
+            {{>loadBlock this}}
+          {{/each}}
+        </div>
+      </div>
+      <!-- /.col-md-4 -->
+      <div class="col-lg-5 m-3 border border-dark rounded">
+        <div class="row justify-content-around">
+          <div class="col-lg-12 ml-5  ">
+            <h4 class="text-center">Load in Focus</h4>
+          </div>
+          <div class="col-lg-7 border border-dark rounded">
+            <h6>Load Details</h6>
+            <div class="row">
+              <div class="col-lg-5">
+                <p class="m-1 mt-3">Broker</p>
+                <p class="m-1 border border-dark rounded" id="brokerFocus">{{loads.0.dataValues.broker}}</p>
+                <p class="m-1">Load Number</p>
+                <p class="m-1 border border-dark rounded" id="loadNumFocus">{{loads.0.dataValues.loadNum}}</p>
+                <p class="m-1">Trailer Number</p>
+                <p class="m-1 mb-3 border border-dark rounded" id="trailerNumFocus">{{loads.0.dataValues.trailer}}</p>
+              </div>
+              <div class="col-lg-5">
+                <p class="m-1 mt-3">Pick Up Address</p>
+                <p class="m-1 border border-dark rounded" id="puAddressFocus">{{loads.0.dataValues.puAddress}}</p>
+                <p class="m-1">Pick Up Date</p>
+                <p class="m-1 mb-2 border border-dark rounded" id="puDateFocus">{{loads.0.dataValues.puDate}}</p>
+                <br>
+                <p class="m-1 mt-2">Drop Off Address</p>
+                <p class="m-1 border border-dark rounded" id="doAddressFocus">{{loads.0.dataValues.doAddress}}</p>
+                <p class="m-1">Drop Off Date</p>
+                <p class="m-1 mb-3 border border-dark rounded" id="dueDateFocus">{{loads.0.dataValues.dueDate}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 border border-dark rounded">
+            <h6>Driver Details</h6>
+            <div class="row">
+              <div class="col-lg-10">
+                <p class="m-1 mt-3">Driver Name</p>
+                <p class="m-1 border border-dark rounded" id="driverNameFocus">{{loads.0.Driver.dataValues.driverName}}</p>
+                <p class="m-1">Driver Cell</p>
+                <p class="m-1 border border-dark rounded" id="driverCellFocus">{{loads.0.Driver.dataValues.cell}}</p>
+                <p class="m-1 ">Truck Number</p>
+                <p class="m-1 mb-3 border border-dark rounded" id="truckNumFocus">{{loads.0.Driver.dataValues.truck}}</p>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div id="map">
+          
+        </div>
+      </div>
+
+     <div class="col-lg-3 m-3 border border-dark rounded">
+        <div class="row justify-content-center">
+          <div class="col-lg-12 ml-5">
+            <h4 class="text-center">En Route Tracker</h4>
+          </div>
+        </div> 
+        <div>
+          {{#each loads}}
+            {{log this}}
+            {{>loadBlock this}}
+          {{/each}}
+        </div>
+      </div>
+
+    </div>
+  
+  {{!-- end content --}}
+  </div>
+
+  <!-- /.row -->
+  </div>
+<!-- /.container -->
+<!-- Button trigger modal -->
+
+
+<!--Add Driver Modal -->
+<div class="modal fade" id="addDriver" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Add a driver to the database</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Driver Name</h6>
+        <input id="driverNameInput" type="text">
+        <h6>Cell</h6>
+        <input id="cellInput" type="text">
+        <h6>Truck Number</h6>
+        <input id="truckNumberInput" type="text">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="submitDriver" type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{!-- Add Load Modal --}}
+<div class="modal fade" id="addLoad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Add a driver to the database</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-lg-5">
+            <h6>Broker</h6>
+            <input id="brokerInput" type="text">
+            <h6>Load Number</h6>
+            <input id="loadNumInput" type="text">
+            <h6>Trailer</h6>
+            <input id="trailerInput" type="text">
+            <h6>Driver (if assigned)</h6>
+            <input id="loadDriver" type="text">
+          </div>
+          <div class="col-lg-5">
+            <h6>Pick Up Address</h6>
+            <input id="puAddInput" type="text">
+            <h6>Drop Off Address</h6>
+            <input id="doAddInput" type="text">
+            <h6>Pick Up Date & Time</h6>
+            <input id="puTimeInput" type="text">
+            <h6>Drop Off Date & Time</h6>
+            <input id="doTimeInput" type="text">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="submitLoad" type="button" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="py-3 bg-success footer-fluid rounded">
+  <div class="container">
+    <p class="m-0 text-center text-black">Copyright &copy; GroupSeven 2020</p>
+  </div>
+  <!-- /.container -->
+</footer>
+
+
+{{!-- <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> --}}

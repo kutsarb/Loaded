@@ -1,0 +1,2 @@
+INSERT INTO loads (broker,loadNum,puAddress,doAddress,puDate,dueDate,trailer,createdAt,updatedAt,DriverId) VALUE ('TQL', '168449','1234 SMITH ST., CLEVELAND, OH','1234 SMITH ST., CLEVELAND, TN','1996-11-05 5:08:08','1996-11-05 5:08:08','3310','1996-11-05 5:08:08','1996-11-05 5:08:08',1);
+INSERT INTO drivers(driverName,cell,truck,createdAt,updatedAt)VALUE('Brian',1234567890,'262808','2020-11-30 9:07:00','2020-11-30 9:07:00')
