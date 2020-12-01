@@ -44,15 +44,15 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         future: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             defaultValue: 0
         },
         enRoute: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             defaultValue: 0
         },
         delivered: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             defaultValue: 0
         }
 
