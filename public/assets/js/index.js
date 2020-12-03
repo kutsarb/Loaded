@@ -1,17 +1,4 @@
-// Driver Data
-// .Name
-// .Cell
-// .Truck
 
-// Load Data
-// .Broker
-// .Load Number
-// .pick up add
-// .drop off add
-// .pick up date/time
-// .due date date/time
-// .trailer
-// .active boolean
 $(document).ready(function () {
 
     // modal inputs element
@@ -65,15 +52,6 @@ $(document).ready(function () {
         $("#sidebar").addClass("active")
     });
         
-//    $('#sidebar').mouseover(function () {
-//        // open or close navbar
-//        $('#sidebar').toggleClass('active');
-//        // close dropdowns
-//        $('.collapse.in').toggleClass('in');
-//        // and also adjust aria-expanded attributes we use for the open/closed arrows
-//        // in our CSS
-//        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-//    });
 
     // post for driver
     $("#submitDriver").click(function () {
@@ -167,7 +145,26 @@ $(document).ready(function () {
         postLoad(newPost);
     });
 
-    $(".enRoute").click( function (){
+    $(".enRoute").click( function () {
+        let loadId = ($(this).data("id"));
+
+        $.ajax(`api/loads/${loadId}`, {
+            type: "GET"
+        }).then(function (res) {
+            console.log(res)
+            brokerFocus.text(res[0].broker);
+            loadNumFocus.text(res[0].loadNum);
+            trailerNumFocus.text(res[0].trailer);
+            puAddressFocus.text(res[0].puAddress);
+            puDateFocus.text(res[0].puDate);
+            doAddressFocus.text(res[0].doAddress);
+            dueDateFocus.text(res[0].dueDate);
+            driverNameFocus.text(res[0].Driver.driverName);
+            driverCellFocus.text(res[0].Driver.cell);
+            truckNumFocus.text(res[0].Driver.truck);
+        });
+
+
 
     });
 
