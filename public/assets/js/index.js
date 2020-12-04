@@ -157,7 +157,16 @@ $(document).ready(function () {
         postLoad(newPost);
     });
 
-    
+    $('#puTimeInput').datetimepicker({
+        timepicker: true,
+        datepicker: true,
+        format: 'Y-m-d H:i',
+        value: '2020-2-12 09:45',
+        hours12: false,
+        step: 30,
+        yearStart: 2015,
+        yearEnd: 2030
+    })
     
     
 
