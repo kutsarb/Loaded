@@ -31,8 +31,8 @@
         </div> 
         <div>
           {{#each loads}}
-            {{log this}}
-            {{>loadBlock this}}
+            {{!-- {{log this}} --}}
+            {{>enRouteBlock this}}
           {{/each}}
         </div>
       </div>
@@ -59,10 +59,10 @@
                 <p class="m-1">Pick Up Date</p>
                 <p class="m-1 mb-2 border border-dark rounded" id="puDateFocus">{{loads.0.dataValues.puDate}}</p>
                 <br>
-                <p class="m-1 mt-2">Drop Off Address</p>
+                {{!-- <p class="m-1 mt-2">Drop Off Address</p>
                 <p class="m-1 border border-dark rounded" id="doAddressFocus">{{loads.0.dataValues.doAddress}}</p>
                 <p class="m-1">Drop Off Date</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="dueDateFocus">{{loads.0.dataValues.dueDate}}</p>
+                <p class="m-1 mb-3 border border-dark rounded" id="dueDateFocus">{{loads.0.dataValues.dueDate}}</p> --}}
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@
             </div>
           </div>
         </div> 
-        <div id="map">
+        <div id="map" class="m-2">
           
         </div>
       </div>
@@ -93,8 +93,8 @@
         </div> 
         <div>
           {{#each loads}}
-            {{log this}}
-            {{>loadBlock this}}
+            {{!-- {{log this}} --}}
+            {{>lookAheadBlock this}}
           {{/each}}
         </div>
       </div>
