@@ -91,17 +91,12 @@ ul ul a {
   background: #808080;
 }
 
-.results{
-  width: max-content;
-  padding-left: 33%;
-  padding-right: 33%;
+a {
+  color: #fff !important;
+  background-color: transparent;
+  text-decoration: none;
 }
 
-.search{
-  padding-left: 20%;
-  width: max-content;
-  z-index: unset;
+footer {
+  background: #808080 !important;
 }
-
-#future{
-  background-color: red!important}
