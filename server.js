@@ -33,6 +33,7 @@ app.set('views', path.join(__dirname, 'views'));
 require("./controllers/htmlRoutes.js")(app);
 require("./controllers/apiLoadRoutes.js")(app);
 require("./controllers/apiDriverRoutes.js")(app);
+require("./controllers/apiSearch.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
