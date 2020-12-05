@@ -3,35 +3,35 @@
   <!-- Sidebar -->
   {{>nav}}
   <!-- Page Content -->
-  <div id="content">
+  <div class="content">
     <!-- Page Content -->
     {{!-- <div class="container"> --}}
     <!-- JUMBOTRON -->
-  {{>header}}
-  
+    {{>header}}
+
     <!-- Timeline -->
     {{!-- <div class="card text-white bg-secondary my-5 py-4 text-center">
       <div class="card-body">
         <div id='timeline-embed' style="width: 100%; height: 400px"></div>
       </div>
     </div> --}}
-    
-    
+
+
     <div class="row justify-content-around ">
       <div class="col-lg-3 m-3 border border-dark rounded">
         <div class="row justify-content-center">
           <div class="col-lg-12 ml-5 ">
             <h4 class="text-center">En Route Tracker</h4>
           </div>
-        </div> 
+        </div>
         <div>
           {{log this}}
           {{#each load}}
-            
-            
-        
-            {{!-- {{log this}} --}}
-            {{>enRouteBlock this}}
+
+
+
+          {{!-- {{log this}} --}}
+          {{>enRouteBlock this}}
           {{/each}}
         </div>
       </div>
@@ -70,7 +70,8 @@
             <div class="row">
               <div class="col-lg-10">
                 <p class="m-1 mt-3">Driver Name</p>
-                <p class="m-1 border border-dark rounded" id="driverNameFocus">{{load.0.Driver.dataValues.driverName}}</p>
+                <p class="m-1 border border-dark rounded" id="driverNameFocus">{{load.0.Driver.dataValues.driverName}}
+                </p>
                 <p class="m-1">Driver Cell</p>
                 <p class="m-1 border border-dark rounded" id="driverCellFocus">{{load.0.Driver.dataValues.cell}}</p>
                 <p class="m-1 ">Truck Number</p>
@@ -78,33 +79,33 @@
               </div>
             </div>
           </div>
-        </div> 
+        </div>
         <div id="map" class="m-2">
-          
+
         </div>
       </div>
 
-     <div class="col-lg-3 m-3 border border-dark rounded">
+      <div class="col-lg-3 m-3 border border-dark rounded">
         <div class="row justify-content-center">
           <div class="col-lg-12 ml-5">
             <h4 class="text-center">Look Ahead</h4>
           </div>
-        </div> 
+        </div>
         <div>
           {{#each load}}
-            {{!-- {{log this}} --}}
-            {{>lookAheadBlock this}}
+          {{!-- {{log this}} --}}
+          {{>lookAheadBlock this}}
           {{/each}}
         </div>
       </div>
 
     </div>
-  
-  {{!-- end content --}}
+
+    {{!-- end content --}}
   </div>
 
   <!-- /.row -->
-  </div>
+</div>
 <!-- /.container -->
 <!-- Button trigger modal -->
 

@@ -34,8 +34,9 @@ html, body {
   margin-left: -190px;
 }
 
-#content {
+.content {
   width: 100%;
+  flex-wrap: wrap;
 }
 
 /* navbar style */

@@ -2,11 +2,11 @@
 $(document).ready(function () {
 
 
-    function getLoadNum(loadNum) {
-        $.ajax(`/api/search/${loadNum}`, {
+    function getSearchResults(where, query) {
+        $.ajax(`/api/search/${where}/${query}`, {
             type: "GET",
         }).then(function (res) {
-            console.log(res[0].loadNum)
+            console.log(res)
             for (let j = 0; j < res.length; j++) {
 
                 var resultsList = $("#results-list")
@@ -18,7 +18,7 @@ $(document).ready(function () {
                 var puDate = $("<p>")
                 var dueDate = $("<p>")
                 var trailer = $("<p>")
-                var driverName = $("<p>")
+                // var driverName = $("<p>")
 
 
                 broker.text(res[j].broker);
@@ -28,7 +28,7 @@ $(document).ready(function () {
                 puDate.text(res[j].puDate);
                 dueDate.text(res[j].dueDate);
                 trailer.text(res[j].trailer);
-                driverName.text(res[j].driverName);
+                // driverName.text(res[j].driverName);
 
                 resultBox.addClass("p-2 m-2 border rounded");
 
@@ -67,20 +67,22 @@ $(document).ready(function () {
     }
 
     $("#loadSrch").click(function () {
-        var loadNum = $("#loadNum").val();
-        getLoadNum(loadNum);
-
-
-
-        // var loadNum = $("#loadNum").val();
-
-        // switch (searchParam){
-        //     case loadNum:
-        //     getLoadNum();
-        //     break;
-
-
-        // }
+        var searchValue = $("#searchValue").val();
+        var searchParam = $("#selection").val()
+        console.log(searchValue)
+        
+        switch (searchParam) {
+            case "Load #":
+            let where1 = "loadNum";
+            let query1 = searchValue    
+            getSearchResults(where1, query1);
+            break;
+            case "Broker":
+            let where2 = "broker";
+            let query2 = searchValue    
+            getSearchResults(where2, query2);
+            break;
+        }
 
     });
 
