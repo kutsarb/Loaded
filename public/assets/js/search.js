@@ -18,9 +18,22 @@ $(document).ready(function () {
                 var puDate = $("<p>")
                 var dueDate = $("<p>")
                 var trailer = $("<p>")
-                // var driverName = $("<p>")
+                var driverName = $("<p>")
+                var futureBtn = $("<input>")
+                var futureBtnLabel = $("<label>")
+                var enRouteBtn = $("<input>")
+                var enRouteLabel = $("<label>")
+                var deliveredBtn = $("<input>")
+                var deliveredLabel = $("<label>")
 
-
+                broker.addClass("p-2 m-2 border rounded")
+                loadNum.addClass("p-2 m-2 border rounded")
+                puAddress.addClass("p-2 m-2 border rounded")
+                doAddress.addClass("p-2 m-2 border rounded")
+                puDate.addClass("p-2 m-2 border rounded")
+                dueDate.addClass("p-2 m-2 border rounded")
+                trailer.addClass("p-2 m-2 border rounded")
+                driverName.addClass("p-2 m-2 border rounded")
                 broker.text(res[j].broker);
                 loadNum.text(res[j].loadNum);
                 puAddress.text(res[j].puAddress);
@@ -28,10 +41,31 @@ $(document).ready(function () {
                 puDate.text(res[j].puDate);
                 dueDate.text(res[j].dueDate);
                 trailer.text(res[j].trailer);
-                // driverName.text(res[j].driverName);
+                driverName.text(res[j].Driver.driverName);
+
+                futureBtn.addClass("future");
+                futureBtn.attr("type","radio");
+                futureBtn.attr("value","future");
+                futureBtn.attr("name",`${res[j].loadNum}`);
+                futureBtnLabel.attr("for","future");
+                futureBtnLabel.text("Future");
+
+                enRouteBtn.addClass("enRoute");
+                enRouteBtn.attr("type","radio");
+                enRouteBtn.attr("value","enRoute");
+                enRouteBtn.attr("name",`${res[j].loadNum}`);
+                enRouteLabel.attr("for","enRoute");
+                enRouteLabel.text("En Route");
+
+                deliveredBtn.addClass("delivered");
+                deliveredBtn.attr("type","radio");
+                deliveredBtn.attr("value","delivered");
+                deliveredBtn.attr("name",`${res[j].loadNum}`);
+                deliveredLabel.attr("for","delivered");
+                deliveredLabel.text("Delivered");
 
                 resultBox.addClass("p-2 m-2 border rounded");
-
+            
                 resultsList.append(resultBox);
 
                 resultBox.append(broker);
@@ -49,6 +83,18 @@ $(document).ready(function () {
                 resultBox.append(trailer);
 
                 resultBox.append(driverName);
+
+                resultBox.append(enRouteBtn);
+
+                resultBox.append(enRouteLabel);
+
+                resultBox.append(futureBtn);
+
+                resultBox.append(futureBtnLabel);
+
+                resultBox.append(deliveredBtn);
+
+                resultBox.append(deliveredLabel);
 
 
                 
