@@ -1,0 +1,26 @@
+<div id="loadResultDisplay">
+    <div class="wrapper">
+
+        {{>nav}}
+
+     {{>header}}
+
+        <div>
+            <input placeholder="Search...." id="loadNum" type="text" />
+            <button id="loadSrch" type="search" class="btn btn-success">Create Author</button>
+        </div>
+
+
+
+        <div id="eachResult" class="row results">
+            {{#each res}}
+            {{>loadSearch this}}
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+{{>footer}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+<script src='/assets/js/search.js'></script>

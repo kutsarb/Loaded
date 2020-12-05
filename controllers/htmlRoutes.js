@@ -35,16 +35,18 @@ module.exports = function(app) {
             include: [{model:db.Driver}]
         }).then(function (data) {
                 hbsObject = {
-                    loads: data
+                    load: data
                 };
-                console.log(hbsObject);
+                // console.log(hbsObject);
             }).then(res.render("index", hbsObject));
         
 
     });
 
-   
+    app.get("/api/search", function (req, res) {
+    res.render("search");
+    });
 
    
 
-};
+}
