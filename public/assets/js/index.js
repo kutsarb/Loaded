@@ -1,4 +1,20 @@
+// Driver Data
+// .Name
+// .Cell
+// .Truck
 
+const { get } = require("http");
+const loads = require("../../../models/loads");
+
+// Load Data
+// .Broker
+// .Load Number
+// .pick up add
+// .drop off add
+// .pick up date/time
+// .due date date/time
+// .trailer
+// .active boolean
 $(document).ready(function () {
 
     // modal inputs element
@@ -26,13 +42,13 @@ $(document).ready(function () {
     const driverCellFocus = $("#driverCellFocus");
     const truckNumFocus = $("#truckNumFocus");
 
-    const currentdate = new Date(); 
+    const currentdate = new Date();
     const datetime = currentdate.getFullYear() + "-"
-                + (currentdate.getMonth()+1)  + "-" 
-                + currentdate.getDate() + " "  
-                + currentdate.getHours() + ":"  
-                + currentdate.getMinutes() + ":" 
-                + currentdate.getSeconds();
+        + (currentdate.getMonth() + 1) + "-"
+        + currentdate.getDate() + " "
+        + currentdate.getHours() + ":"
+        + currentdate.getMinutes() + ":"
+        + currentdate.getSeconds();
     console.log(datetime)
 
     // let map;
@@ -54,14 +70,23 @@ $(document).ready(function () {
     
     
 
-    $("#sidebar").mouseenter( function () {
+    $("#sidebar").mouseenter(function () {
         $("#sidebar").removeClass("active");
     });
 
-    $("#sidebar").mouseleave( function () {
+    $("#sidebar").mouseleave(function () {
         $("#sidebar").addClass("active")
     });
-        
+
+    //    $('#sidebar').mouseover(function () {
+    //        // open or close navbar
+    //        $('#sidebar').toggleClass('active');
+    //        // close dropdowns
+    //        $('.collapse.in').toggleClass('in');
+    //        // and also adjust aria-expanded attributes we use for the open/closed arrows
+    //        // in our CSS
+    //        $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+    //    });
 
     // post for driver
     $("#submitDriver").click(function () {
@@ -83,12 +108,12 @@ $(document).ready(function () {
         console.log(newPost);
 
         function postDriver(post) {
-            
+
             $.ajax("/api/driver", {
                 type: "POST",
                 data: post
-            }).then(function() {
-                
+            }).then(function () {
+
                 window.location.href = "/";
                 // location.reload();
             });
@@ -100,14 +125,13 @@ $(document).ready(function () {
 
     // post for loads
     $("#submitLoad").click(function () {
-        if (!brokerValue.val() || 
-            !loadNumValue.val() || 
+        if (!brokerValue.val() ||
+            !loadNumValue.val() ||
             !trailerValue.val() ||
             !puAddValue.val() ||
             !doAddValue.val() ||
             !puTimeValue.val() ||
-            !doTimeValue.val() ) 
-            {
+            !doTimeValue.val()) {
             return;
         }
 
@@ -127,7 +151,7 @@ $(document).ready(function () {
             doAddress: doAddValue
                 .val()
                 .trim(),
-            puDate:puTimeValue
+            puDate: puTimeValue
                 .val()
                 .trim(),
             dueDate: doTimeValue
@@ -140,12 +164,12 @@ $(document).ready(function () {
         console.log(newPost);
 
         function postLoad(post) {
-            
+
             $.ajax("/api/loads", {
                 type: "POST",
                 data: post
-            }).then(function() {
-                
+            }).then(function () {
+
                 window.location.href = "/";
                 // location.reload();
             });
@@ -154,6 +178,7 @@ $(document).ready(function () {
 
         postLoad(newPost);
     });
+
 
     $(".enRoute").click( function () {
         let loadId = ($(this).data("id"));
@@ -214,14 +239,9 @@ $(document).ready(function () {
 
 
 
+
     });
 
-    
-
-
-
-    
-    
-
 });
+
 
