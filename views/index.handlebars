@@ -30,7 +30,11 @@
           </div>
         </div> 
         <div>
-          {{#each loads}}
+          {{log this}}
+          {{#each load}}
+            
+            
+        
             {{!-- {{log this}} --}}
             {{>enRouteBlock this}}
           {{/each}}
@@ -47,22 +51,22 @@
             <div class="row">
               <div class="col-lg-5">
                 <p class="m-1 mt-3">Broker</p>
-                <p class="m-1 border border-dark rounded" id="brokerFocus">{{loads.0.dataValues.broker}}</p>
+                <p class="m-1 border border-dark rounded" id="brokerFocus">{{load.0.dataValues.broker}}</p>
                 <p class="m-1">Load Number</p>
-                <p class="m-1 border border-dark rounded" id="loadNumFocus">{{loads.0.dataValues.loadNum}}</p>
+                <p class="m-1 border border-dark rounded" id="loadNumFocus">{{load.0.dataValues.loadNum}}</p>
                 <p class="m-1">Trailer Number</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="trailerNumFocus">{{loads.0.dataValues.trailer}}</p>
+                <p class="m-1 mb-3 border border-dark rounded" id="trailerNumFocus">{{load.0.dataValues.trailer}}</p>
               </div>
               <div class="col-lg-5">
                 <p class="m-1 mt-3">Pick Up Address</p>
-                <p class="m-1 border border-dark rounded" id="puAddressFocus">{{loads.0.dataValues.puAddress}}</p>
+                <p class="m-1 border border-dark rounded" id="puAddressFocus">{{load.0.dataValues.puAddress}}</p>
                 <p class="m-1">Pick Up Date</p>
-                <p class="m-1 mb-2 border border-dark rounded" id="puDateFocus">{{loads.0.dataValues.puDate}}</p>
+                <p class="m-1 mb-2 border border-dark rounded" id="puDateFocus">{{load.0.dataValues.puDate}}</p>
                 <br>
                 {{!-- <p class="m-1 mt-2">Drop Off Address</p>
-                <p class="m-1 border border-dark rounded" id="doAddressFocus">{{loads.0.dataValues.doAddress}}</p>
+                <p class="m-1 border border-dark rounded" id="doAddressFocus">{{load.0.dataValues.doAddress}}</p>
                 <p class="m-1">Drop Off Date</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="dueDateFocus">{{loads.0.dataValues.dueDate}}</p> --}}
+                <p class="m-1 mb-3 border border-dark rounded" id="dueDateFocus">{{load.0.dataValues.dueDate}}</p> --}}
               </div>
             </div>
           </div>
@@ -71,11 +75,11 @@
             <div class="row">
               <div class="col-lg-10">
                 <p class="m-1 mt-3">Driver Name</p>
-                <p class="m-1 border border-dark rounded" id="driverNameFocus">{{loads.0.Driver.dataValues.driverName}}</p>
+                <p class="m-1 border border-dark rounded" id="driverNameFocus">{{load.0.Driver.dataValues.driverName}}</p>
                 <p class="m-1">Driver Cell</p>
-                <p class="m-1 border border-dark rounded" id="driverCellFocus">{{loads.0.Driver.dataValues.cell}}</p>
+                <p class="m-1 border border-dark rounded" id="driverCellFocus">{{load.0.Driver.dataValues.cell}}</p>
                 <p class="m-1 ">Truck Number</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="truckNumFocus">{{loads.0.Driver.dataValues.truck}}</p>
+                <p class="m-1 mb-3 border border-dark rounded" id="truckNumFocus">{{load.0.Driver.dataValues.truck}}</p>
               </div>
             </div>
           </div>
@@ -92,7 +96,7 @@
           </div>
         </div> 
         <div>
-          {{#each loads}}
+          {{#each load}}
             {{!-- {{log this}} --}}
             {{>lookAheadBlock this}}
           {{/each}}

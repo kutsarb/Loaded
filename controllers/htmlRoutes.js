@@ -37,7 +37,7 @@ module.exports = function(app) {
                 hbsObject = {
                     load: data
                 };
-                console.log(hbsObject);
+                // console.log(hbsObject);
             }).then(res.render("index", hbsObject));
         
 
