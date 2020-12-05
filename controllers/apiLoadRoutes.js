@@ -16,7 +16,7 @@ module.exports = function(app) {
       // Here we add an "include" property to our options in our findOne query
       // We set the value to an array of the models we want to include in a left outer join
       // In this case, just db.Post
-      db.Load.findOne({
+      db.Load.findAll({
         where: {
           id: req.params.id
         },
