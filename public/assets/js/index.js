@@ -3,9 +3,6 @@
 // .Cell
 // .Truck
 
-const { get } = require("http");
-const loads = require("../../../models/loads");
-
 // Load Data
 // .Broker
 // .Load Number
