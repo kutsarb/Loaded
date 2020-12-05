@@ -46,11 +46,7 @@ a, a:hover, a:focus {
 
 #sidebar {
   /* don't forget to add all the previously mentioned styles here too */
-<<<<<<< HEAD
-  background: #23272a;
-=======
   background: #808080;
->>>>>>> 2fd1d7bedcded50a5a5c9e89edd5266b5acc9339
   color: #fff;
   transition: all 0.3s;
 }
@@ -62,11 +58,7 @@ a, a:hover, a:focus {
 
 #sidebar ul.components {
   padding: 20px 0;
-<<<<<<< HEAD
-  border-bottom: 1px solid #23272a;
-=======
   border-bottom: 1px solid #808080;
->>>>>>> 2fd1d7bedcded50a5a5c9e89edd5266b5acc9339
 }
 
 #sidebar ul p {
@@ -81,35 +73,26 @@ a, a:hover, a:focus {
   color: #000000
 }
 #sidebar ul li a:hover {
-<<<<<<< HEAD
-  color: #fff;
-  background: #2c2f33;
-=======
   color: #808080;
   background: #fff;
->>>>>>> 2fd1d7bedcded50a5a5c9e89edd5266b5acc9339
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
   color: #fff;
-<<<<<<< HEAD
-  background: #23272a;
-=======
   background: #808080;
->>>>>>> 2fd1d7bedcded50a5a5c9e89edd5266b5acc9339
 }
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-<<<<<<< HEAD
-  background: #23272a;
-=======
   background: #808080;
->>>>>>> 2fd1d7bedcded50a5a5c9e89edd5266b5acc9339
 }
 
 a {
   color: #fff !important;
   background-color: transparent;
   text-decoration: none;
+}
+
+footer {
+  background: #808080 !important;
 }
