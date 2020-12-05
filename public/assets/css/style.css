@@ -83,3 +83,18 @@ ul ul a {
   padding-left: 30px !important;
   background: #6d7fcc;
 }
+
+.results{
+  width: max-content;
+  padding-left: 33%;
+  padding-right: 33%;
+}
+
+.search{
+  padding-left: 20%;
+  width: max-content;
+  z-index: unset;
+}
+
+#future{
+  background-color: red!important}

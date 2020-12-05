@@ -35,7 +35,7 @@ module.exports = function(app) {
             include: [{model:db.Driver}]
         }).then(function (data) {
                 hbsObject = {
-                    loads: data
+                    load: data
                 };
                 console.log(hbsObject);
             }).then(res.render("index", hbsObject));
@@ -43,21 +43,10 @@ module.exports = function(app) {
 
     });
 
-    app.get("/search", function (req, res) {
-        db.Load.findAll({
-            include: [{model:db.Driver}]
-        }).then(function (data) {
-                hbsObject = {
-                    loads: data
-                };
-                console.log(hbsObject);
-            }).then(res.render("search", hbsObject));
-        
-
+    app.get("/api/search", function (req, res) {
+    res.render("search");
     });
 
    
 
-   
-
-};
+}
