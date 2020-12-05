@@ -35,14 +35,24 @@ $(document).ready(function () {
                 + currentdate.getSeconds();
     console.log(datetime)
 
-    let map;
+    // let map;
+    // function initMap() {
+    //     var options = {
+    //      center: { lat: -34.397, lng: 150.644 },
+    //      zoom: 8,
+    //     };
+        
+    //     var map = new google.maps.Map(document.getElementById("map"), options);
+    //     return map;            
+    // };
 
-    function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 8,
-        });
-    }
+    
+    // initMap();
+
+
+    
+    
+    
 
     $("#sidebar").mouseenter( function () {
         $("#sidebar").removeClass("active");
@@ -162,7 +172,45 @@ $(document).ready(function () {
             driverNameFocus.text(res[0].Driver.driverName);
             driverCellFocus.text(res[0].Driver.cell);
             truckNumFocus.text(res[0].Driver.truck);
+            
+            // function calculateRoute(from, to) {
+            //     // Center initialized to Naples, Italy
+            //     var myOptions = {
+            //         zoom: 10,
+            //         center: new google.maps.LatLng(40.84, 14.25),
+            //         mapTypeId: google.maps.MapTypeId.ROADMAP
+            //     };
+            //     // Draw the map
+            //     var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
+
+            //     var directionsService = new google.maps.DirectionsService();
+            //     var directionsRequest = {
+            //         origin: from,
+            //         destination: to,
+            //         travelMode: google.maps.DirectionsTravelMode.DRIVING
+            //     };
+            //     directionsService.route(
+            //         directionsRequest,
+            //         function (response, status) {
+            //             if (status == google.maps.DirectionsStatus.OK) {
+            //                 new google.maps.DirectionsRenderer({
+            //                     map: mapObject,
+            //                     directions: response
+            //                 });
+            //             }
+            //             else
+            //             window.alert("directions request failed, see" + status)
+            //         }
+            //     );
+            // }
+
+            // calculateRoute(res[0].puAddress, res[0].doAddress);
+
+           
+        
         });
+
+        
 
 
 
