@@ -38,6 +38,20 @@ $(document).ready(function () {
 
                 resultBox.append(loadNum);
 
+                resultBox.append(puAddress);
+
+                resultBox.append(doAddress);
+
+                resultBox.append(puDate);
+
+                resultBox.append(dueDate);
+
+                resultBox.append(trailer);
+
+                resultBox.append(driverName);
+
+
+                
                 //     switch(res[j]){ 
 
                 //         case moment().add(0, 'days'): 
