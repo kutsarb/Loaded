@@ -11,7 +11,6 @@ $(document).ready(function () {
             for (let j = 0; j < res.length; j++) {
 
                 var resultsList = $("#results-list")
-
                 var resultBox = $("<tr>")
                 var emptyRow = $("<tr>")
                 var emptyCell = $("<td>")
@@ -23,18 +22,7 @@ $(document).ready(function () {
                 var dueDate = $("<td>")
                 var trailer = $("<td>")
                 var driverName = $("<td>")
-                
-
-                var resultBox = $("<div>")
-                var broker = $("<p>")
-                var loadNum = $("<p>")
-                var puAddress = $("<p>")
-                var doAddress = $("<p>")
-                var puDate = $("<p>")
-                var dueDate = $("<p>")
-                var trailer = $("<p>")
-                var driverName = $("<p>")
-                var buttonGroup = $("<div>")
+                var buttonGroup = $("<td>")
                 var buttonLabel1 = $("<label>")
                 var buttonLabel2 = $("<label>")
                 var buttonLabel3 = $("<label>")
@@ -68,10 +56,7 @@ $(document).ready(function () {
                 driverName.html("Driver: "+'<br>'+res[j].Driver.driverName);
                 emptyRow.addClass("spacer")
 
-               
-
                 resultBox.addClass("rows p-2 m-2 border rounded");
-            
                 resultsList.append(resultBox);
 
                 buttonGroup.addClass("btn-group btn-group-toggle")
@@ -89,8 +74,6 @@ $(document).ready(function () {
                 driverName.text(res[j].Driver.driverName);
 
                 
-
-
                 resultBox.addClass("p-2 m-2 border rounded contentCol");
                 resultsList.append(resultBox);
                 resultBox.append(broker);
@@ -104,12 +87,6 @@ $(document).ready(function () {
                 resultBox.append(buttonGroup)
                 
                 for (i=1; i<4; i++) {
-                    
-
-
-               
-
-            
                     switch (i) {
                         case 1:
 
@@ -117,9 +94,6 @@ $(document).ready(function () {
                             buttonInput1.text(" delivered ")
                             buttonInput1.addClass("flagButton")
                             buttonInput1.attr("data-id", idOfLoad)
-
-                            
-
                             buttonGroup.append(buttonLabel1)
                             buttonLabel1.append(buttonInput1)
                             if (deliveredFlag === 1) {
@@ -148,28 +122,15 @@ $(document).ready(function () {
                                 buttonLabel3.addClass("focus active")
                             }
                             break;
-                    }
-                    
+                    } 
                 };
 
 
                 resultsList.append(emptyRow)
-
                 emptyRow.append(emptyCell)
-                
                 emptyRow.append(emptyCell)
-
                 emptyRow.append(emptyCell)
-                //     switch(res[j]){ 
-
-                //         case moment().add(0, 'days'): 
-
-                //         var broker = $
-
-                //         $("#day-0").append(loadNum.append(body));
-
-                //         break;
-                //     }
+              
             }
         });
     }
@@ -234,9 +195,4 @@ $(document).ready(function () {
             console.log("flag updated")
           });
     }
-
-    
-
-
-
 });

@@ -30,41 +30,40 @@
           <div class="col-lg-12 ml-5  ">
             <h4 class="text-center">Load in Focus</h4>
           </div>
-          <div class="col-lg-7 border border-dark rounded">
-            <h6>Load Details</h6>
-            <div class="row">
-              <div class="col-lg-5">
+          <div class="col-lg-7 focusCol border border-dark rounded">
+            <h6 class="text-center">Load Details</h6>
+            <div class="row justify-content-around">
+              <div class="col-lg-6 text-center">
                 <p class="m-1 mt-3">Broker</p>
-                <p class="m-1 border border-dark rounded" id="brokerFocus">{{load.0.dataValues.broker}}</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="brokerFocus">{{load.0.dataValues.broker}}</p>
                 <p class="m-1">Load Number</p>
-                <p class="m-1 border border-dark rounded" id="loadNumFocus">{{load.0.dataValues.loadNum}}</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="loadNumFocus">{{load.0.dataValues.loadNum}}</p>
                 <p class="m-1">Trailer Number</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="trailerNumFocus">{{load.0.dataValues.trailer}}</p>
+                <p class="m-1 text-center textDisplay mb-3 border border-dark rounded" id="trailerNumFocus">{{load.0.dataValues.trailer}}</p>
               </div>
-              <div class="col-lg-5">
+              <div class="col-lg-6 text-center">
                 <p class="m-1 mt-3">Pick Up Address</p>
-                <p class="m-1 border border-dark rounded" id="puAddressFocus">{{load.0.dataValues.puAddress}}</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="puAddressFocus">{{load.0.dataValues.puAddress}}</p>
                 <p class="m-1">Pick Up Date</p>
-                <p class="m-1 mb-2 border border-dark rounded" id="puDateFocus">{{load.0.dataValues.puDate}}</p>
-                <br>
-                {{!-- <p class="m-1 mt-2">Drop Off Address</p>
-                <p class="m-1 border border-dark rounded" id="doAddressFocus">{{load.0.dataValues.doAddress}}</p>
+                <p class="m-1 mb-0 text-center textDisplay mb-2 border border-dark rounded" id="puDateFocus">{{load.0.dataValues.puDate}}</p>
+                <p class="m-1 mt-0">Drop Off Address</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="doAddressFocus">{{load.0.dataValues.doAddress}}</p>
                 <p class="m-1">Drop Off Date</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="dueDateFocus">{{load.0.dataValues.dueDate}}</p> --}}
+                <p class="m-1 mb-3 text-center textDisplay border border-dark rounded" id="dueDateFocus">{{load.0.dataValues.dueDate}}</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 border border-dark rounded">
-            <h6>Driver Details</h6>
-            <div class="row">
-              <div class="col-lg-10">
+          <div class="col-lg-3 focusCol border border-dark rounded">
+            <h6 class="text-center">Driver Details</h6>
+            <div class="row justify-content-center">
+              <div class="col-lg-12 ">
                 <p class="m-1 mt-3">Driver Name</p>
-                <p class="m-1 border border-dark rounded" id="driverNameFocus">{{load.0.Driver.dataValues.driverName}}
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="driverNameFocus">{{load.0.Driver.dataValues.driverName}}
                 </p>
                 <p class="m-1">Driver Cell</p>
-                <p class="m-1 border border-dark rounded" id="driverCellFocus">{{load.0.Driver.dataValues.cell}}</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="driverCellFocus">{{load.0.Driver.dataValues.cell}}</p>
                 <p class="m-1 ">Truck Number</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="truckNumFocus">{{load.0.Driver.dataValues.truck}}</p>
+                <p class="m-1 text-center textDisplay mb-3 border border-dark rounded" id="truckNumFocus">{{load.0.Driver.dataValues.truck}}</p>
               </div>
             </div>
           </div>

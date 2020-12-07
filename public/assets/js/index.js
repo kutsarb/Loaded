@@ -46,19 +46,19 @@ $(document).ready(function () {
         + currentdate.getSeconds();
     console.log(datetime)
 
-    // let map;
-    // function initMap() {
-    //     var options = {
-    //      center: { lat: -34.397, lng: 150.644 },
-    //      zoom: 8,
-    //     };
+    let map;
+    function initMap() {
+        var options = {
+         center: { lat: -34.397, lng: 150.644 },
+         zoom: 8,
+        };
 
-    //     var map = new google.maps.Map(document.getElementById("map"), options);
-    //     return map;            
-    // };
+        var map = new google.maps.Map(document.getElementById("map"), options);
+        return map;            
+    };
 
 
-    // initMap();
+    initMap();
 
 
 
@@ -188,6 +188,53 @@ $(document).ready(function () {
         $(this).addClass("activ")
     })
 
+    function updateFlag(req) {
+        $.ajax({
+          method: "PUT",
+          url: `/api/loads`,
+          data: req
+        })
+          .then(function() {
+            console.log("flag updated")
+          });
+    }
+
+    $(".deliverButton").click(function(){
+        let id = ($(this).data("id"));
+        let button = $(this);
+        
+        button.removeClass("btn-warning");
+        button.addClass("btn-danger");
+        button.empty();
+        button.html("<i class='fas fa-truck-loading'></i>")
+        
+        var flagPutReq = {
+            id: id,
+            enRoute: 0,
+            delivered: 1,
+            
+        }
+        updateFlag(flagPutReq);
+    });
+
+    $(".enRouteButton").click(function(){
+        let id = ($(this).data("id"));
+        let button = $(this);
+        
+        button.removeClass("btn-success");
+        button.addClass("btn-warning");
+        button.empty();
+        button.html("<i class='fas fa-truck-loading'></i>")
+        
+        var flagPutReq = {
+            id: id,
+            enRoute: 1,
+            future: 0,
+            
+        }
+        updateFlag(flagPutReq);
+    });
+
  
 
     $(".enRoute").click(function () {
@@ -197,10 +244,6 @@ $(document).ready(function () {
             type: "GET"
         }).then(function (res) {
             console.log(res)
-
-
-
-
 
             brokerFocus.text(res[0].broker);
             loadNumFocus.text(res[0].loadNum);
@@ -213,38 +256,38 @@ $(document).ready(function () {
             driverCellFocus.text(res[0].Driver.cell);
             truckNumFocus.text(res[0].Driver.truck);
 
-            // function calculateRoute(from, to) {
-            //     // Center initialized to Naples, Italy
-            //     var myOptions = {
-            //         zoom: 10,
-            //         center: new google.maps.LatLng(40.84, 14.25),
-            //         mapTypeId: google.maps.MapTypeId.ROADMAP
-            //     };
-            //     // Draw the map
-            //     var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
+            function calculateRoute(from, to) {
+                // Center initialized to Naples, Italy
+                var myOptions = {
+                    zoom: 10,
+                    center: new google.maps.LatLng(40.84, 14.25),
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                // Draw the map
+                var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
 
-            //     var directionsService = new google.maps.DirectionsService();
-            //     var directionsRequest = {
-            //         origin: from,
-            //         destination: to,
-            //         travelMode: google.maps.DirectionsTravelMode.DRIVING
-            //     };
-            //     directionsService.route(
-            //         directionsRequest,
-            //         function (response, status) {
-            //             if (status == google.maps.DirectionsStatus.OK) {
-            //                 new google.maps.DirectionsRenderer({
-            //                     map: mapObject,
-            //                     directions: response
-            //                 });
-            //             }
-            //             else
-            //             window.alert("directions request failed, see" + status)
-            //         }
-            //     );
-            // }
+                var directionsService = new google.maps.DirectionsService();
+                var directionsRequest = {
+                    origin: from,
+                    destination: to,
+                    travelMode: google.maps.DirectionsTravelMode.DRIVING
+                };
+                directionsService.route(
+                    directionsRequest,
+                    function (response, status) {
+                        if (status == google.maps.DirectionsStatus.OK) {
+                            new google.maps.DirectionsRenderer({
+                                map: mapObject,
+                                directions: response
+                            });
+                        }
+                        else
+                        window.alert("directions request failed, see" + status)
+                    }
+                );
+            }
 
-            // calculateRoute(res[0].puAddress, res[0].doAddress);
+            calculateRoute(res[0].puAddress, res[0].doAddress);
 
 
 
@@ -259,6 +302,7 @@ $(document).ready(function () {
             autoclose: true
         });
     });
+
     $(function () {
         $('#datetimepicker2').datepicker({
             format: 'mm-dd-yyyy',
