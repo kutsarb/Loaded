@@ -54,18 +54,18 @@ $(document).ready(function () {
     //      center: { lat: -34.397, lng: 150.644 },
     //      zoom: 8,
     //     };
-        
+
     //     var map = new google.maps.Map(document.getElementById("map"), options);
     //     return map;            
     // };
 
-    
+
     // initMap();
 
 
-    
-    
-    
+
+
+
 
     $("#sidebar").mouseenter(function () {
         $("#sidebar").removeClass("active");
@@ -177,13 +177,25 @@ $(document).ready(function () {
     });
 
 
-    $(".enRoute").click( function () {
+    $(".enRouted").click(function(){
+        $(".enRouted").removeClass("activ");
+        $(this).addClass("activ")
+    })
+
+ 
+
+    $(".enRoute").click(function () {
         let loadId = ($(this).data("id"));
 
         $.ajax(`api/loads/${loadId}`, {
             type: "GET"
         }).then(function (res) {
             console.log(res)
+
+
+
+
+
             brokerFocus.text(res[0].broker);
             loadNumFocus.text(res[0].loadNum);
             trailerNumFocus.text(res[0].trailer);
@@ -194,7 +206,7 @@ $(document).ready(function () {
             driverNameFocus.text(res[0].Driver.driverName);
             driverCellFocus.text(res[0].Driver.cell);
             truckNumFocus.text(res[0].Driver.truck);
-            
+
             // function calculateRoute(from, to) {
             //     // Center initialized to Naples, Italy
             //     var myOptions = {
@@ -228,11 +240,11 @@ $(document).ready(function () {
 
             // calculateRoute(res[0].puAddress, res[0].doAddress);
 
-           
-        
+
+
         });
 
-    
+
     });
 
 });
