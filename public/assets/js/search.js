@@ -6,17 +6,7 @@ $(document).ready(function () {
         $.ajax(`/api/search/${where}/${query}`, {
             type: "GET",
         }).then(function (res) {
-            
-            // hbsObject = {
-            //     load: res
-            // };
-            // console.log(hbsObject)
-            
-            // var template = $("#handlebarsTest");
-            // var renderSearch = Handlebars.compile(template);
-            // $("#searchBlockTest") = renderSearch(hbsObject);
-
-
+            console.log(res)
 
             for (let j = 0; j < res.length; j++) {
 
