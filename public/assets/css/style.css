@@ -15,6 +15,10 @@ html, body {
   font-family: 'Arvo', serif !important;
 }
 
+.jumbotron {
+
+}
+
 #logoImg {
   max-width: 40%;
 }
@@ -37,6 +41,14 @@ html, body {
 .content {
   width: 100%;
   flex-wrap: wrap;
+  background-image: url(https://i.pinimg.com/originals/23/7f/8c/237f8c42f6600344a3f3d143704523bb.jpg);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover
+}
+
+.contentCol {
+  background-color: #808080;
 }
 
 /* navbar style */
@@ -102,7 +114,6 @@ footer {
   background: #808080 !important;
 }
 
-
 #results-list{
   margin-left: 6vw;
   margin-right: 6vw;
@@ -157,3 +168,4 @@ background-color: #96969660;
 background-color: #0d6fdea6;
 color: white
 }
+

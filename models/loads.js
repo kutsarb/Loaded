@@ -29,12 +29,18 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         puDate: {
-            type: DataTypes.DATE,
+            type: DataTypes.STRING,
             allowNull: false,
+            validate: {
+                len: [1, 100]
+            }
         },
         dueDate: {
-            type: DataTypes.DATE,
-            allowNull: false
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 100]
+            }
         },
         trailer: {
             type: DataTypes.STRING,

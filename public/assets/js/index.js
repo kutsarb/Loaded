@@ -23,8 +23,6 @@ $(document).ready(function () {
     const trailerValue = $("#trailerInput");
     const puAddValue = $("#puAddInput");
     const doAddValue = $("#doAddInput");
-    const puTimeValue = $("#puTimeInput");
-    const doTimeValue = $("#doTimeInput");
     const loadDriverValue = $("#loadDriver");
 
     // focus output elements
@@ -126,12 +124,24 @@ $(document).ready(function () {
             !loadNumValue.val() ||
             !trailerValue.val() ||
             !puAddValue.val() ||
-            !doAddValue.val() ||
-            !puTimeValue.val() ||
-            !doTimeValue.val()) {
+            !doAddValue.val()) {
             return;
         }
 
+        const puMonthValue = $("#puTimeInput").find(".month").val();
+        const puDayValue = $("#puTimeInput").find(".day").val();
+        const puYearValue = $("#puTimeInput").find(".year").val();
+        const puTimeValue = $("#puTimeInput").find(".time").val();
+        const doMonthValue = $("#doTimeInput").find(".month").val();
+        const doDayValue = $("#doTimeInput").find(".day").val();
+        const doYearValue = $("#doTimeInput").find(".year").val();
+        const doTimeValue = $("#doTimeInput").find(".time").val();
+        
+        const compiledPuDate = puMonthValue + " " + puDayValue + ", " + puYearValue + " - " + puTimeValue;
+        const compiledDueDate = doMonthValue + " " + doDayValue + ", " + doYearValue + " - " + doTimeValue;
+        console.log(compiledPuDate)
+        console.log(compiledDueDate)
+        
         let newPost = {
             broker: brokerValue
                 .val()
@@ -148,12 +158,8 @@ $(document).ready(function () {
             doAddress: doAddValue
                 .val()
                 .trim(),
-            puDate: puTimeValue
-                .val()
-                .trim(),
-            dueDate: doTimeValue
-                .val()
-                .trim(),
+            puDate: compiledPuDate,
+            dueDate: compiledDueDate,
             DriverId: loadDriverValue
                 .val()
                 .trim()
@@ -245,6 +251,19 @@ $(document).ready(function () {
         });
 
 
+    });
+
+    $(function () {
+        $('#datetimepicker1').datepicker({
+            format: 'mm-dd-yyyy',
+            autoclose: true
+        });
+    });
+    $(function () {
+        $('#datetimepicker2').datepicker({
+            format: 'mm-dd-yyyy',
+            autoclose: true
+        });
     });
 
 });
