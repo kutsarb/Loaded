@@ -235,6 +235,19 @@ $(document).ready(function () {
     
     });
 
+    $(function () {
+        $('#datetimepicker1').datepicker({
+            format: 'mm-dd-yyyy',
+            autoclose: true
+        });
+    });
+    $(function () {
+        $('#datetimepicker2').datepicker({
+            format: 'mm-dd-yyyy',
+            autoclose: true
+        });
+    });
+
 });
 
 
