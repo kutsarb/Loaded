@@ -15,8 +15,8 @@ html, body {
   font-family: 'Arvo', serif !important;
 }
 
-.jumbotron {
-
+.flagButton {
+  font-size: 20px !important;
 }
 
 #logoImg {
@@ -49,6 +49,15 @@ html, body {
 
 .contentCol {
   background-color: #808080;
+}
+
+.focusCol {
+  background-color: #6b6b6b;
+}
+
+.textDisplay {
+  background-color: #9a9a9a;
+  font-size: .7rem;
 }
 
 /* navbar style */
