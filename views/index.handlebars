@@ -18,11 +18,9 @@
         <div>
           {{log this}}
           {{#each load}}
-
-
-
-          {{!-- {{log this}} --}}
-          {{>enRouteBlock this}}
+            {{#if this.dataValues.enRoute}}
+              {{>enRouteBlock this}}
+            {{/if}}
           {{/each}}
         </div>
       </div>
@@ -84,8 +82,9 @@
         </div>
         <div>
           {{#each load}}
-          {{!-- {{log this}} --}}
-          {{>lookAheadBlock this}}
+            {{#if this.dataValues.future}}
+              {{>lookAheadBlock this}}
+            {{/if}}
           {{/each}}
         </div>
       </div>

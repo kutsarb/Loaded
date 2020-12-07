@@ -27,6 +27,10 @@ $(document).ready(function () {
                 var buttonInput1 = $("<input type='radio' name='options' autocomplete='off'>")
                 var buttonInput2 = $("<input type='radio' name='options' autocomplete='off'>")
                 var buttonInput3 = $("<input type='radio' name='options' autocomplete='off'>")
+                var enRouteFlag = res[j].enRoute
+                var deliveredFlag = res[j].delivered
+                var futureFlag = res[j].future
+                var idOfLoad = res[j].id
 
                 broker.addClass("p-2 m-2 border rounded")
                 loadNum.addClass("p-2 m-2 border rounded")
@@ -70,23 +74,37 @@ $(document).ready(function () {
             
                     switch (i) {
                         case 1:
-                            buttonInput1.attr("id", `option${i}`)
-                            
+                            buttonInput1.attr("id", `delivered`)
+                            buttonInput1.text(" delivered ")
+                            buttonInput1.addClass("flagButton")
+                            buttonInput1.attr("data-id", idOfLoad)
                             buttonGroup.append(buttonLabel1)
                             buttonLabel1.append(buttonInput1)
-                            buttonInput1.text(" delivered ")
+                            if (deliveredFlag === 1) {
+                                buttonLabel1.addClass("focus active")
+                            }
                             break;
                         case 2:
-                            buttonInput2.attr("id", `option${i}`)
+                            buttonInput2.attr("id", `enRoute`)
                             buttonInput2.text(" en route ")
+                            buttonInput2.addClass("flagButton")
+                            buttonInput2.attr("data-id", idOfLoad)
                             buttonGroup.append(buttonLabel2)
                             buttonLabel2.append(buttonInput2)
+                            if (enRouteFlag === 1) {
+                                buttonLabel2.addClass("focus active")
+                            }
                              break;
                         case 3:
-                            buttonInput3.attr("id", `option${i}`)
+                            buttonInput3.attr("id", `future`)
                             buttonInput3.text(" look ahead ")
+                            buttonInput3.addClass("flagButton")
+                            buttonInput3.attr("data-id", idOfLoad)
                             buttonGroup.append(buttonLabel3)
                             buttonLabel3.append(buttonInput3)
+                            if (futureFlag === 1) {
+                                buttonLabel3.addClass("focus active")
+                            }
                             break;
                     }
                     
@@ -127,14 +145,48 @@ $(document).ready(function () {
 
     });
 
-    $("input[name='ourRadio']:radio").change(function() {
-     let query = ($(this).attr("name"));
-     let select = ($(this).attr("value"));
-        console.log(query)
-        console.log(select)
-        console.log("hi")
+    $("#results-list").on("click", ".flagButton", function () {
+        
+        
+        let id = ($(this).data("id"));
+        let selection = ($(this).attr("id"));
+        
+        var flagPutReq = {
+            id: id,
+            enRoute: 0,
+            delivered: 0,
+            future: 0
+        }
+        
+        switch (selection) {
+            case "delivered":
+            flagPutReq.delivered = 1
+            break;
+            case "enRoute":
+            flagPutReq.enRoute = 1
+            break;
+            case "future":
+            flagPutReq.future = 1
+            break;
+        }
+
+        console.log(flagPutReq)
+        updateFlag(flagPutReq)
+
     });
-   
+
+    function updateFlag(req) {
+        $.ajax({
+          method: "PUT",
+          url: `/api/loads`,
+          data: req
+        })
+          .then(function() {
+            console.log("flag updated")
+          });
+    }
+
+    
 
 
 
