@@ -2,109 +2,99 @@
 <div class="wrapper">
   <!-- Sidebar -->
   {{>nav}}
-  <!-- Page Content -->
-  <div id="content">
-    <!-- Page Content -->
-    {{!-- <div class="container"> --}}
-    <!-- JUMBOTRON -->
-  {{>header}}
   
-    <!-- Timeline -->
-    {{!-- <div class="card text-white bg-secondary my-5 py-4 text-center">
-      <div class="card-body">
-        <div id='timeline-embed' style="width: 100%; height: 400px"></div>
-      </div>
-    </div> --}}
+  <div class="content">
     
-    
+    {{>header}}
+
+
     <div class="row justify-content-around ">
-      <div class="col-lg-3 m-3 border border-dark rounded">
+      <div class="col-lg-3 m-3 border border-dark rounded contentCol">
         <div class="row justify-content-center">
           <div class="col-lg-12 ml-5 ">
             <h4 class="text-center">En Route Tracker</h4>
           </div>
-        </div> 
+        </div>
         <div>
           {{log this}}
           {{#each load}}
-            
-            
-        
-            {{!-- {{log this}} --}}
-            {{>enRouteBlock this}}
+            {{#if this.dataValues.enRoute}}
+              {{>enRouteBlock this}}
+            {{/if}}
           {{/each}}
         </div>
       </div>
       <!-- /.col-md-4 -->
-      <div class="col-lg-5 m-3 border border-dark rounded">
+      <div class="col-lg-5 m-3 border border-dark rounded contentCol">
         <div class="row justify-content-around">
           <div class="col-lg-12 ml-5  ">
             <h4 class="text-center">Load in Focus</h4>
           </div>
-          <div class="col-lg-7 border border-dark rounded">
-            <h6>Load Details</h6>
-            <div class="row">
-              <div class="col-lg-5">
+          <div class="col-lg-7 focusCol border border-dark rounded">
+            <h6 class="text-center">Load Details</h6>
+            <div class="row justify-content-around">
+              <div class="col-lg-6 text-center">
                 <p class="m-1 mt-3">Broker</p>
-                <p class="m-1 border border-dark rounded" id="brokerFocus">{{load.0.dataValues.broker}}</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="brokerFocus">{{load.0.dataValues.broker}}</p>
                 <p class="m-1">Load Number</p>
-                <p class="m-1 border border-dark rounded" id="loadNumFocus">{{load.0.dataValues.loadNum}}</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="loadNumFocus">{{load.0.dataValues.loadNum}}</p>
                 <p class="m-1">Trailer Number</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="trailerNumFocus">{{load.0.dataValues.trailer}}</p>
+                <p class="m-1 text-center textDisplay mb-3 border border-dark rounded" id="trailerNumFocus">{{load.0.dataValues.trailer}}</p>
               </div>
-              <div class="col-lg-5">
+              <div class="col-lg-6 text-center">
                 <p class="m-1 mt-3">Pick Up Address</p>
-                <p class="m-1 border border-dark rounded" id="puAddressFocus">{{load.0.dataValues.puAddress}}</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="puAddressFocus">{{load.0.dataValues.puAddress}}</p>
                 <p class="m-1">Pick Up Date</p>
-                <p class="m-1 mb-2 border border-dark rounded" id="puDateFocus">{{load.0.dataValues.puDate}}</p>
-                <br>
-                {{!-- <p class="m-1 mt-2">Drop Off Address</p>
-                <p class="m-1 border border-dark rounded" id="doAddressFocus">{{load.0.dataValues.doAddress}}</p>
+                <p class="m-1 mb-0 text-center textDisplay mb-2 border border-dark rounded" id="puDateFocus">{{load.0.dataValues.puDate}}</p>
+                <p class="m-1 mt-0">Drop Off Address</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="doAddressFocus">{{load.0.dataValues.doAddress}}</p>
                 <p class="m-1">Drop Off Date</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="dueDateFocus">{{load.0.dataValues.dueDate}}</p> --}}
+                <p class="m-1 mb-3 text-center textDisplay border border-dark rounded" id="dueDateFocus">{{load.0.dataValues.dueDate}}</p>
               </div>
             </div>
           </div>
-          <div class="col-lg-3 border border-dark rounded">
-            <h6>Driver Details</h6>
-            <div class="row">
-              <div class="col-lg-10">
+          <div class="col-lg-3 focusCol border border-dark rounded">
+            <h6 class="text-center">Driver Details</h6>
+            <div class="row justify-content-center">
+              <div class="col-lg-12 ">
                 <p class="m-1 mt-3">Driver Name</p>
-                <p class="m-1 border border-dark rounded" id="driverNameFocus">{{load.0.Driver.dataValues.driverName}}</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="driverNameFocus">{{load.0.Driver.dataValues.driverName}}
+                </p>
                 <p class="m-1">Driver Cell</p>
-                <p class="m-1 border border-dark rounded" id="driverCellFocus">{{load.0.Driver.dataValues.cell}}</p>
+                <p class="m-1 text-center textDisplay border border-dark rounded" id="driverCellFocus">{{load.0.Driver.dataValues.cell}}</p>
                 <p class="m-1 ">Truck Number</p>
-                <p class="m-1 mb-3 border border-dark rounded" id="truckNumFocus">{{load.0.Driver.dataValues.truck}}</p>
+                <p class="m-1 text-center textDisplay mb-3 border border-dark rounded" id="truckNumFocus">{{load.0.Driver.dataValues.truck}}</p>
               </div>
             </div>
           </div>
-        </div> 
+        </div>
         <div id="map" class="m-2">
-          
+
         </div>
       </div>
 
-     <div class="col-lg-3 m-3 border border-dark rounded">
+      <div class="col-lg-3 m-3 border border-dark rounded contentCol">
         <div class="row justify-content-center">
           <div class="col-lg-12 ml-5">
             <h4 class="text-center">Look Ahead</h4>
           </div>
-        </div> 
+        </div>
         <div>
           {{#each load}}
-            {{!-- {{log this}} --}}
-            {{>lookAheadBlock this}}
+            {{#if this.dataValues.future}}
+              {{>lookAheadBlock this}}
+            {{/if}}
           {{/each}}
         </div>
       </div>
 
     </div>
-  
-  {{!-- end content --}}
+
+    {{!-- end content --}}
   </div>
 
   <!-- /.row -->
-  </div>
+</div>
 <!-- /.container -->
 <!-- Button trigger modal -->
 
@@ -138,7 +128,7 @@
 {{!-- Add Load Modal --}}
 <div class="modal fade" id="addLoad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered"  role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">Add a driver to the database</h5>
@@ -147,8 +137,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-5">
+        <div class="row justify-content-around">
+          <div class="col-lg-4">
             <h6>Broker</h6>
             <input id="brokerInput" type="text">
             <h6>Load Number</h6>
@@ -158,16 +148,28 @@
             <h6>Driver (if assigned)</h6>
             <input id="loadDriver" type="text">
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-6">
             <h6>Pick Up Address</h6>
             <input id="puAddInput" type="text">
             <h6>Drop Off Address</h6>
             <input id="doAddInput" type="text">
+            {{!-- <div class="input-group input-daterange" id="datetimepicker1">
             <h6>Pick Up Date & Time</h6>
-            <input id="puTimeInput" type="text">
+              <div id="puTimeInput">
+              {{>date}}
+              </div>
             <h6>Drop Off Date & Time</h6>
-            <input id="doTimeInput" type="text">
-          </div>
+              <div id="doTimeInput">
+              {{>date}}
+              </div>
+          </div> --}}
+            <div class="input-group input-daterange" id="datetimepicker1">
+            <h6>Pick Up Date & Time</h6> 
+            <input id="puTimeInput" type="text"> {{>time}}
+            </div>
+            <div class="input-group input-daterange" id="datetimepicker2">
+            <h6>Drop Off Date & Time</h6>
+            <input id="doTimeInput" type="text"> {{>time}}
         </div>
       </div>
       <div class="modal-footer">

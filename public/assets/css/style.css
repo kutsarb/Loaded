@@ -12,8 +12,16 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family: 'Arvo', serif !important;
 }
 
+.flagButton {
+  font-size: 20px !important;
+}
+
+#logoImg {
+  max-width: 40%;
+}
 .wrapper {
   display: flex;
   width: 100%;
@@ -30,8 +38,26 @@ html, body {
   margin-left: -190px;
 }
 
-#content {
+.content {
   width: 100%;
+  flex-wrap: wrap;
+  background-image: url(https://i.pinimg.com/originals/23/7f/8c/237f8c42f6600344a3f3d143704523bb.jpg);
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover
+}
+
+.contentCol {
+  background-color: #808080;
+}
+
+.focusCol {
+  background-color: #6b6b6b;
+}
+
+.textDisplay {
+  background-color: #9a9a9a;
+  font-size: .7rem;
 }
 
 /* navbar style */
@@ -96,3 +122,59 @@ a {
 footer {
   background: #808080 !important;
 }
+
+#results-list{
+  margin-left: 6vw;
+  margin-right: 6vw;
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+  }
+}
+
+
+
+
+.enRouted:hover{
+transform: scale(1.008);
+background-color: #96969660;
+}
+.activ{
+background-color: #0d6fdea6;
+color: white
+}
+

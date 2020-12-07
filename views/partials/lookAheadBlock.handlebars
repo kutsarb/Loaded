@@ -1,4 +1,4 @@
-<div class="row justify-content-center">
+{{!-- <div class="row justify-content-center">
 	<div class="col-lg-10 p-2 m-2 border rounded lookAhead" data-id="{{dataValues.id}}">
 		
 		<p>Broker: {{dataValues.broker}}</p>
@@ -6,6 +6,20 @@
 		<p>Load Number: {{dataValues.loadNum}}</p>
 		<p>Due Date: {{dataValues.dueDate}}</p>
 
+	</div>
+</div> --}}
+
+<div class="row m-2 justify-content-between border border-dark rounded">
+	<div class="col-lg-9 p-2 m-2  lookAhead justify-content-center" data-id="{{dataValues.id}}">
+		
+		<p class="m-1">Broker: {{dataValues.broker}}</p>
+		<p class="m-1">Driver: {{Driver.dataValues.driverName}}</p>
+		<p class="m-1">Load Number: {{dataValues.loadNum}}</p>
+		<p class="m-1">Due Date: {{dataValues.dueDate}}</p>
+
+	</div>
+	<div class="col-lg-1 m-2 pr-4 justify-content-center" >
+		<button type="button" class="btn btn-success btn-sm enRouteButton" data-id="{{dataValues.id}}"><i class="fas fa-truck"></i></button>
 	</div>
 </div>
 

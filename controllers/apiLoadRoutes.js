@@ -31,6 +31,18 @@ module.exports = function(app) {
         res.json(dbLoad);
       });
     });
+
+    app.put("/api/loads", function(req, res) {
+      db.Load.update(
+        req.body,
+        {
+          where: {
+            id: req.body.id
+          }
+        }).then(function(dbLoad) {
+        res.json(dbLoad);
+      });
+    });
   
   
   };

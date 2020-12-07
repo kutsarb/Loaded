@@ -3,9 +3,11 @@
 
 // var app = express();
 
-var db = require("../models")
+var db = require("../models");
+var path = require("path");
 
-module.exports = function(app) {
+
+module.exports = function (app) {
 
     // app.get("/", function (req, res) {
     //     db.Load.findAll({})
@@ -17,7 +19,7 @@ module.exports = function(app) {
     //         }).then(res.render("index"));
     // });
 
-    
+
     // app.get("/", function (req, res) {
     //     db({ 
     //     }).then(function (data) {
@@ -26,27 +28,32 @@ module.exports = function(app) {
     //             };
     //             console.log(hbsObject);
     //         }).then(res.render("index", hbsObject));
-        
+
 
     // });
+    
+
+    app.get("/search", function (req, res) {
+        res.render(path.join(__dirname, "../views/search.handlebars"));
+    });
 
     app.get("/", function (req, res) {
         db.Load.findAll({
-            include: [{model:db.Driver}]
+            include: [{ model: db.Driver }]
         }).then(function (data) {
-                hbsObject = {
-                    load: data
-                };
-                // console.log(hbsObject);
-            }).then(res.render("index", hbsObject));
-        
+            hbsObject = {
+                load: data
+            };
+            // console.log(hbsObject);
+        }).then(res.render("index", hbsObject));
+
 
     });
 
     app.get("/api/search", function (req, res) {
-    res.render("search");
+        res.render("search");
     });
 
-   
+
 
 }

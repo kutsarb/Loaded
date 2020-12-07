@@ -1,12 +1,12 @@
-<div class="">
-	<div class="p-2 m-2 border rounded" data-id="{{dataValues}}">
-		
-		<p>Broker: {{dataValues.broker}} Load Number: {{dataValues.loadNum}}</p>
+<div id="searchBlockTest">
+	<div class="p-2 m-2 border rounded" style="background-color: yellow;" data-id="{{dataValues}}">
+		{{log this "and HOW!"}}
+		<p>Broker: {{broker}} Load Number: {{dataValues.loadNum}}</p>
         <p>Pick Up Address: {{dataValues.puAddress}} Drop Off Address: {{dataValues.doAddress}}</p>
         <p>Pick Up Date: {{dataValues.puDate}}</p>
         <p>Drop Off Date: {{dataValues.dueDate}}</p>
         <p>Trailer#:{{dataValues.trailer}}</p>
-        <p>Driver: {{Driver.dataValues.driverName}}</p>
+        <p>Driver: {{Driver.driverName}}</p>
         <input class="future" type="radio" id="status" name="{{dataValues.loadNum}}" value="future">
         <label for="future">Future</label>
         <input class="enRoute" type="radio" id="status" name="{{dataValues.loadNum}}" value="enRoute">

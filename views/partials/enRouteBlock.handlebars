@@ -1,4 +1,4 @@
-<div class="row m-2 justify-content-between border border-dark rounded">
+<div class="row m-2 justify-content-between border border-dark rounded enRouted">
 	<div class="col-lg-9 p-2 m-2  enRoute justify-content-center" data-id="{{dataValues.id}}">
 		
 		<p class="m-1">Broker: {{dataValues.broker}}</p>
@@ -7,8 +7,8 @@
 		<p class="m-1">Due Date: {{dataValues.dueDate}}</p>
 
 	</div>
-	<div class="col-lg-1 m-2 pr-4 justify-content-center" >
-		<button type="button" class="btn btn-secondary btn-sm">D</button>
+	<div class="col-lg-1 m-2 p-0 justify-content-start" >
+		<button type="button" class="btn btn-warning btn-sm deliverButton" data-id="{{dataValues.id}}"><i class="fas fa-truck"></i></button>
 	</div>
 </div>
 
