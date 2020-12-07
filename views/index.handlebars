@@ -130,7 +130,7 @@
 {{!-- Add Load Modal --}}
 <div class="modal fade" id="addLoad" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered"  role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalCenterTitle">Add a driver to the database</h5>
@@ -139,8 +139,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-5">
+        <div class="row justify-content-around">
+          <div class="col-lg-4">
             <h6>Broker</h6>
             <input id="brokerInput" type="text">
             <h6>Load Number</h6>
@@ -150,15 +150,19 @@
             <h6>Driver (if assigned)</h6>
             <input id="loadDriver" type="text">
           </div>
-          <div class="col-lg-5">
+          <div class="col-lg-6">
             <h6>Pick Up Address</h6>
             <input id="puAddInput" type="text">
             <h6>Drop Off Address</h6>
             <input id="doAddInput" type="text">
             <h6>Pick Up Date & Time</h6>
-            <input id="puTimeInput" type="text">
+              <div id="puTimeInput">
+              {{>date}}
+              </div>
             <h6>Drop Off Date & Time</h6>
-            <input id="doTimeInput" type="text">
+              <div id="doTimeInput">
+              {{>date}}
+              </div>
           </div>
         </div>
       </div>
