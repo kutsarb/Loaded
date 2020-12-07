@@ -11,6 +11,20 @@ $(document).ready(function () {
             for (let j = 0; j < res.length; j++) {
 
                 var resultsList = $("#results-list")
+
+                var resultBox = $("<tr>")
+                var emptyRow = $("<tr>")
+                var emptyCell = $("<td>")
+                var broker = $("<td>")
+                var loadNum = $("<td>")
+                var puAddress = $("<td>")
+                var doAddress = $("<td>")
+                var puDate = $("<td>")
+                var dueDate = $("<td>")
+                var trailer = $("<td>")
+                var driverName = $("<td>")
+                
+
                 var resultBox = $("<div>")
                 var broker = $("<p>")
                 var loadNum = $("<p>")
@@ -28,7 +42,10 @@ $(document).ready(function () {
                 var buttonInput2 = $("<input type='radio' name='options' autocomplete='off'>")
                 var buttonInput3 = $("<input type='radio' name='options' autocomplete='off'>")
 
-                broker.addClass("p-2 m-2 border rounded")
+               
+                broker.text("Broker:")
+                broker.addClass("p-2 m-2 border rounded bold")
+                broker.addClass("broker")
                 loadNum.addClass("p-2 m-2 border rounded")
                 puAddress.addClass("p-2 m-2 border rounded")
                 doAddress.addClass("p-2 m-2 border rounded")
@@ -36,6 +53,23 @@ $(document).ready(function () {
                 dueDate.addClass("p-2 m-2 border rounded")
                 trailer.addClass("p-2 m-2 border rounded")
                 driverName.addClass("p-2 m-2 border rounded")
+
+                broker.html("Broker: "+'<br>'+res[j].broker);
+                loadNum.html("Load #: "+'<br>'+res[j].loadNum);
+                puAddress.html("Pick Up: "+'<br>'+res[j].puAddress);
+                doAddress.html("Drop Off: "+'<br>'+res[j].doAddress);
+                puDate.html("Pick Up: "+'<br>'+res[j].puDate);
+                dueDate.html("Drop Off: "+'<br>'+res[j].dueDate);
+                trailer.html("Trailer: "+'<br>'+res[j].trailer);
+                driverName.html("Driver: "+'<br>'+res[j].Driver.driverName);
+                emptyRow.addClass("spacer")
+
+               
+
+                resultBox.addClass("rows p-2 m-2 border rounded");
+            
+                resultsList.append(resultBox);
+
                 buttonGroup.addClass("btn-group btn-group-toggle")
                 buttonGroup.attr("data-toggle", "buttons")
                 buttonLabel1.addClass("btn btn-danger")
@@ -52,6 +86,7 @@ $(document).ready(function () {
 
                 
 
+
                 resultBox.addClass("p-2 m-2 border rounded contentCol");
                 resultsList.append(resultBox);
                 resultBox.append(broker);
@@ -67,11 +102,13 @@ $(document).ready(function () {
                 for (i=1; i<4; i++) {
                     
 
+
+               
+
             
                     switch (i) {
                         case 1:
                             buttonInput1.attr("id", `option${i}`)
-                            
                             buttonGroup.append(buttonLabel1)
                             buttonLabel1.append(buttonInput1)
                             buttonInput1.text(" delivered ")
@@ -92,7 +129,14 @@ $(document).ready(function () {
                     
                 };
 
+
+                resultsList.append(emptyRow)
+
+                emptyRow.append(emptyCell)
                 
+                emptyRow.append(emptyCell)
+
+                emptyRow.append(emptyCell)
                 //     switch(res[j]){ 
 
                 //         case moment().add(0, 'days'): 
