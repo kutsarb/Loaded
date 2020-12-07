@@ -153,7 +153,7 @@
             <input id="puAddInput" type="text">
             <h6>Drop Off Address</h6>
             <input id="doAddInput" type="text">
-            <div class="input-group input-daterange" id="datetimepicker1">
+            {{!-- <div class="input-group input-daterange" id="datetimepicker1">
             <h6>Pick Up Date & Time</h6>
               <div id="puTimeInput">
               {{>date}}
@@ -162,7 +162,14 @@
               <div id="doTimeInput">
               {{>date}}
               </div>
-          </div>
+          </div> --}}
+            <div class="input-group input-daterange" id="datetimepicker1">
+            <h6>Pick Up Date & Time</h6> 
+            <input id="puTimeInput" type="text"> {{>time}}
+            </div>
+            <div class="input-group input-daterange" id="datetimepicker2">
+            <h6>Drop Off Date & Time</h6>
+            <input id="doTimeInput" type="text"> {{>time}}
         </div>
       </div>
       <div class="modal-footer">
