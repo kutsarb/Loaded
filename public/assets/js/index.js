@@ -128,17 +128,13 @@ $(document).ready(function () {
             return;
         }
 
-        const puMonthValue = $("#puTimeInput").find(".month").val();
-        const puDayValue = $("#puTimeInput").find(".day").val();
-        const puYearValue = $("#puTimeInput").find(".year").val();
-        const puTimeValue = $("#puTimeInput").find(".time").val();
-        const doMonthValue = $("#doTimeInput").find(".month").val();
-        const doDayValue = $("#doTimeInput").find(".day").val();
-        const doYearValue = $("#doTimeInput").find(".year").val();
-        const doTimeValue = $("#doTimeInput").find(".time").val();
+        const puDateValue = $("#puTimeInput").val();
+        const puTimeValue = $("#datetimepicker1").find(".time").val();
+        const doDateValue = $("#doTimeInput").val();
+        const doTimeValue = $("#datetimepicker2").find(".time").val();
         
-        const compiledPuDate = puMonthValue + " " + puDayValue + ", " + puYearValue + " - " + puTimeValue;
-        const compiledDueDate = doMonthValue + " " + doDayValue + ", " + doYearValue + " - " + doTimeValue;
+        const compiledPuDate = puDateValue + " " + puTimeValue;
+        const compiledDueDate = doDateValue + " " + doTimeValue; 
         console.log(compiledPuDate)
         console.log(compiledDueDate)
         
